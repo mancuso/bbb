@@ -1,0 +1,44 @@
+/dts-v1/;
+/plugin/;
+
+/ {
+    	compatible = "ti,beaglebone", "ti,beaglebone-black";
+
+	/* identification */
+    	part-number = "gpioleds_pins";
+	version = "00A0";
+
+    	fragment@0 {
+        	target = <&am33xx_pinmux>;
+        	__overlay__ {
+            		pinctrl_gpioleds_pins: testleds_gpios {
+                		pinctrl-single,pins = <
+	                 		0x090 0x17 /* P8_7 = gpio2[2] */
+					0x09c 0x17 /* p8_9 = gpio2[5] */
+					0x034 0x17 /* p8_11 = gpio1[13] */
+					0x024 0x17 /* p8_13 = gpio0[23] */
+	                 		0x094 0x17 /* P8_8 = gpio2[3] */
+					0x098 0x17 /* p8_10 = gpio2[4] */
+					0x030 0x17 /* p8_12 = gpio1[12] */
+					0x028 0x17 /* p8_14 = gpio0[26] */
+             			>;
+            		};
+        	};
+    	};
+
+	fragment@1 {
+		target = <&ocp>;
+		__overlay__ {
+			#address-cells = <1>;
+			#size-cells = <1>;
+			testleds_gpios {
+				compatible = "bone-pinmux-helper";
+				pinctrl-names = "default";
+				pinctrl-0 = <&pinctrl_gpioleds_pins>;
+				status = "okay";
+			};
+		};
+	};
+
+};
+
