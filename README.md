@@ -1,4 +1,3 @@
-
 BeagleBone Black BBB C++ API
 ==========
 A high performance, memory mapped, C++ API for GPIO on the Beaglebone Black.
@@ -14,5 +13,5 @@ Development
 Useful Links
 ========
 
-https://github.com/piranha32/IOoo
-http://derekmolloy.ie/tag/beaglebone-black/
+-https://github.com/piranha32/IOoo
+-http://derekmolloy.ie/tag/beaglebone-black/
