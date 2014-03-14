@@ -13,5 +13,6 @@ Development
 Useful Links
 ========
 
--https://github.com/piranha32/IOoo
--http://derekmolloy.ie/tag/beaglebone-black/
+1. https://github.com/piranha32/IOoo
+
+2. http://derekmolloy.ie/tag/beaglebone-black/
