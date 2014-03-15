@@ -1,33 +1,38 @@
-BeagleBone Black BBB C++ API
-==========
-A high performance, memory mapped, C++ API for GPIO on the Beaglebone Black.
-The code was forked from https://github.com/piranha32/IOoo and stripped down to bare essentials for BBB. 
+##BeagleBone Black BBB C++ API
 
-Setup
-========
+The code was forked from [a more generic API project] (https://github.com/piranha32/IOoo) and modifed to run exclusively on BeagleBone Black, resulting in a high performance, memory mapped C++ API. [BoneScript] (http://beagleboard.org/Support/BoneScript) and [Adafruit-BeagleBone-IO-Python] (https://github.com/adafruit/adafruit-beaglebone-io-python) are very useful libraries that allow you to develop applications quickly and efficiently. One less than ideal feature of those libraries is the manner in which they handle GPIO, using the /sys directory. This means that GPIO operations are executed via the Linux file system, which greatly limits the speed of GPIO operations. The BBB C++ library uses the Linux mmap function to access GPIO, where values are  read and written directly from system memory. The result is in some cases a [thousand-fold increase in performance](http://hackaday.com/2013/12/07/speeding-up-beaglebone-black-gpio-a-thousand-times). Applications that require high frequency GPIO operations will benefit greatly from using the BBB C++ library.
+
+###Setup
+
 The following setup applies to the Angstrom Distribution. Setup on other Linux distributions would be very similar. 
 
-Setup Environment Variables. 
+#####Setup Environment Variables. 
 Two environment variables need configuration to support the device tree overlay, which handles pin multiplexing. 
 
-- export SLOTS=/sys/devices/bone_capemgr.8/slots
-- export PINS=/sys/kernel/debug/pinctrl/44e10800.pinmux/pins
+```export SLOTS=/sys/devices/bone_capemgr.8/slots```
+
+```#export PINS=/sys/kernel/debug/pinctrl/44e10800.pinmux/pins```
 
 Double check that these directories exist. You may have to make changes to the capemgr version. Use the directories you find on your system. 
 
-Device Tree Overlay
-The DTS file needs to be complied and placed into the /lib/firmware directory. For details on device tree overlays, see the great tutorial on the site listed below. 
+#####Device Tree Overlay
+The DTS file needs to be complied and placed into
 
-Setup
+    /lib/firmware
+
+For details on device tree overlays, see the great tutorial on the site listed below. 
+
+#####Running the Setup Script
 Once your environment variable are setup, device tree overlay compiled, running the setup script will enable the GPIO configuration and you're ready to execute code. 
 
-Development
-========
+###Development
+
 - Analog input using mmap
 - Fork SPI and I2C functionality
+- More documentation and example code
 
-Useful Links
-========
+###Useful Links
+
 
 1. https://github.com/piranha32/IOoo
 
