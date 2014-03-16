@@ -33,7 +33,7 @@ Once your environment variable are setup, device tree overlay compiled, running 
 
 Developing high performance analong input is the highest priority, but also the most challenging to tackle, because of ongoing changes to the Linux kernel wrt ARM and how analog input is processed. I will probably wait until the dust settles before investing time in a solid analog API for the onboard ADCs. Development plans are as follows
 
-- Analog input from memory maped I/O
+- Analog input using memory maped I/O
 - Integrate SPI and I2C functionality
 - More documentation and example code
 
