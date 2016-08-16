@@ -25,7 +25,7 @@ The DTS file needs to be complied and placed into
 For details on device tree overlays, see the great tutorial on the site listed below. 
 
 #####Running the Setup Script
-Once your environment variable are setup, device tree overlay compiled, running the setup script will enable the GPIO configuration and you're ready to execute code. 
+Once your environment variables are setup, device tree overlay compiled, running the setup script will enable the GPIO configuration and you're ready to execute code. 
 
 
 
